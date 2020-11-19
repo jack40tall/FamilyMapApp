@@ -1,0 +1,44 @@
+
+
+create table users
+(
+    person_id varchar(255) not null primary key unique,
+    username varchar(255) not null unique,
+    password varchar(255) not null,
+    email_address varchar(255) not null,
+    first_name varchar(255) not null,
+    last_name varchar(255) not null,
+    gender varchar(1) not null
+    
+);
+
+create table auth_tokens
+(
+    person_id varchar(255) not null,
+    authorization_num varchar(8) unique
+);
+
+create table persons
+(
+    person_id varchar(255) not null unique,
+    associated_username varchar(255) not null,
+    first_name varchar(255) not null,
+    last_name varchar(255) not null,
+    gender varchar(1) not null,
+    father_id varchar(255),
+    mother_id varchar(255),
+    spouse_id varchar(255)
+);
+
+create table events
+(
+    event_id varchar(255) not null unique,
+    associated_username varchar(255) not null,
+    person_id varchar(255) not null,
+    latitude float,
+    longitude float,
+    country varchar(255),
+    city varchar(255),
+    event_type varchar(255),
+    year integer
+);
